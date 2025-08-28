@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <h2>🍽️ Admin Panel</h2>
+      <ul class="nav-links">
+        <li><a href="admin.html"><i class="fas fa-list"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fas fa-utensils"></i> Menu</a></li>
+        <li><a href="#"><i class="fas fa-chair"></i> Reservations</a></li>
+        <li><a href="#"><i class="fas fa-wallet"></i> Transactions</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+    <div class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h1>📦 Orders Dashboard</h1>
+      <span class="toggle-icon" id="modeToggle">🌙</span>
+    </div>
+
+    <!-- Category Navbar -->
+    <nav class="category-nav">
+      <a data-category="Appetizers">Appetizers</a>
+      <a data-category="Beverages">Beverages</a>
+      <a data-category="Starters">Starters</a>
+      <a data-category="Main Course">Main Course</a>
+      <a data-category="Desserts">Desserts</a>
+    </nav>
+
+    <div class="orders-section">
+      <h2 id="orderTitle">Recent Orders</h2>
+      <div class="orders-list" id="ordersList"></div>
+    </div>
+  </div>
+  <script src="menu.js"></script>
+</body>
+</html>

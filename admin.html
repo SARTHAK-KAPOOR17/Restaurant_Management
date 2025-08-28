@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Admin Dashboard</title>
+
+ <link rel="stylesheet" href="admin.css">
+  <!-- ✅ Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader-wrapper" id="loader">
+    <div class="plate">
+      <div class="food"></div>
+      <div class="food"></div>
+      <div class="food"></div>
+    </div>
+    <p class="loader-text">Cooking your page...</p>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <h2>🍽️ Spice Villa</h2>
+      <ul class="nav-links">
+        <li><a href="admin.html"><i class="fas fa-list"></i> Dashboard</a></li>
+        <li><a href="menu.html"><i class="fas fa-utensils"></i> Menu</a></li>
+        <li><a href="Resv.html"><i class="fas fa-chair"></i> Reservations</a></li>
+        <li><a href="Transactions.html"><i class="fas fa-wallet"></i> Transactions</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+    <!-- Logout -->
+    <div class="logout-btn" id="logoutBtn">🚪 Logout</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h1>📦 Orders Dashboard</h1>
+      <span class="toggle-icon" id="modeToggle">🌙</span>
+    </div>
+
+    <div class="orders-section">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1001</td>
+            <td>Rahul Sharma</td>
+            <td>2x Pizza, 1x Coke</td>
+            <td>₹850</td>
+            <td>Completed</td>
+            <td>26 Aug 2025</td>
+          </tr>
+          <tr>
+            <td>#1002</td>
+            <td>Priya Mehta</td>
+            <td>1x Burger, 1x Fries</td>
+            <td>₹450</td>
+            <td>Pending</td>
+            <td>26 Aug 2025</td>
+          </tr>
+          <tr>
+            <td>#1003</td>
+            <td>Aman Gupta</td>
+            <td>3x Pasta, 2x Juice</td>
+            <td>₹1200</td>
+            <td>In Progress</td>
+            <td>25 Aug 2025</td>
+          </tr>
+          <tr>
+            <td>#1004</td>
+            <td>Neha Singh</td>
+            <td>2x Sandwich, 1x Coffee</td>
+            <td>₹600</td>
+            <td>Completed</td>
+            <td>25 Aug 2025</td>
+          </tr>
+          <tr>
+            <td>#1005</td>
+            <td>Vikas Kumar</td>
+            <td>1x Biryani, 2x Raita</td>
+            <td>₹750</td>
+            <td>Pending</td>
+            <td>24 Aug 2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<script src="admin.js"></script>
+</body>
+</html>

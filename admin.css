@@ -1,0 +1,255 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background: #f9f9f9;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+
+    .sidebar,
+    .main-content {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .sidebar { animation-delay: 0.2s; }
+    .main-content { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      position: fixed;
+      transition: background 0.3s, color 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    body.dark .sidebar {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+
+    .sidebar h2 {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #d62828;
+    }
+
+    .nav-links {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .nav-links li {
+      margin: 15px 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      padding: 10px 15px;
+      display: flex;          /* make icon + text clickable together */
+      align-items: center;
+      gap: 10px;              /* spacing between icon and text */
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: #d62828;
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    .logout-btn {
+      margin-top: auto;
+      padding: 12px;
+      text-align: center;
+      background: #d62828;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .logout-btn:hover {
+      background: #b71c1c;
+      transform: scale(1.05);
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 20px;
+      width: calc(100% - 240px);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .toggle-icon:hover {
+      transform: rotate(20deg) scale(1.2);
+      color: #d62828;
+    }
+
+    .orders-section {
+      margin-top: 20px;
+    }
+
+    .orders-section h2 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #d62828;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    body.dark table {
+      background: #1e1e1e;
+    }
+
+    table th, table td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    body.dark table th, body.dark table td {
+      border-color: #333;
+    }
+
+    table th {
+      background: #f1f1f1;
+      color: #444;
+    }
+
+    body.dark table th {
+      background: #2a2a2a;
+      color: #ddd;
+    }
+
+    table tbody tr {
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    table tbody tr:hover {
+      background: #f9ecec;
+      transform: scale(1.01);
+    }
+
+    body.dark table tbody tr:hover {
+      background: #2a2a2a;
+    }
+
+    /* 🍽️ Food-Themed Loader */
+    .loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .plate {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 6px solid #ddd;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .food {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin: 0 6px;
+      animation: bounce 1s infinite;
+    }
+
+    .food:nth-child(1) { background: #ff6347; } /* tomato */
+    .food:nth-child(2) { background: #fbc02d; animation-delay: 0.2s; } /* cheese */
+    .food:nth-child(3) { background: #4caf50; animation-delay: 0.4s; } /* salad */
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .loader-text {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #444;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { width: 200px; }
+      .main-content { margin-left: 200px; width: calc(100% - 200px); }
+    }
+
+    @media (max-width: 576px) {
+      .sidebar { position: absolute; left: -240px; transition: left 0.3s; }
+      .sidebar.active { left: 0; }
+      .main-content { margin-left: 0; width: 100%; }
+    }
