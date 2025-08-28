@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbee Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .login-box {
+            width: 40%;
+            background-color: #fff;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid #ddd;
+        }
+
+        .login-box h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .login-box input[type="email"], .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .remember-me {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .image-box {
+            width: 60%;
+            background-image: url('https://picsum.photos/200/300');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #forgotPassword, #signUp {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .login-box, .image-box {
+                width: 100%;
+            }
+            .image-box {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>Urbee</h1>
+            <h2>Welcome Back</h2>
+            <p>Sign in with your email address and Password.</p>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit">Sign In</button>
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+                <p>Don't have an account? <a href="#" id="signUp">Sign Up</a></p>
+            </form>
+        </div>
+        <div class="image-box">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var rememberMe = document.getElementById('rememberMe').checked;
+
+            console.log('Email:', email);
+            console.log('Password:', password);
+            console.log('Remember Me:', rememberMe);
+
+            alert('Login form submitted. Check console for data.');
+        });
+    </script>
+</body>
+</html>
