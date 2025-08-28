@@ -1,5 +1,5 @@
 
-    /*const toggle = document.getElementById("modeToggle");
+    const toggle = document.getElementById("modeToggle");
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
@@ -134,74 +134,3 @@
       });
     });
   
-*/
-const toggle = document.getElementById("modeToggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-});
-
-const logoutBtn = document.getElementById("logoutBtn");
-logoutBtn.addEventListener("click", () => {
-  if (confirm("Are you sure you want to logout?")) {
-    window.location.href = "login.html"; 
-  }
-});
-
-// ✅ Updated menu with Pexels images
-const menu = {
-  "Appetizers": [
-    { name: "Golden Spring Rolls", price: "₹150", img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Herbed Garlic Bread", price: "₹120", img: "https://images.pexels.com/photos/4198028/pexels-photo-4198028.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Cheese Loaded Nachos", price: "₹200", img: "https://images.pexels.com/photos/845812/pexels-photo-845812.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Spicy Chicken Wings", price: "₹200", img: "https://images.pexels.com/photos/60616/chicken-wings-food-snack-spicy-60616.jpeg?auto=compress&cs=tinysrgb&w=400" }
-  ],
-  "Beverages": [
-    { name: "Mojito", price: "₹180", img: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Cold Coffee", price: "₹150", img: "https://images.pexels.com/photos/3650788/pexels-photo-3650788.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Lemonade", price: "₹100", img: "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=400" }
-  ],
-  "Main Course": [
-    { name: "Butter Chicken", price: "₹320", img: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Chicken Biryani", price: "₹300", img: "https://images.pexels.com/photos/4106485/pexels-photo-4106485.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Paneer Butter Masala", price: "₹280", img: "https://images.pexels.com/photos/1435895/pexels-photo-1435895.jpeg?auto=compress&cs=tinysrgb&w=400" }
-  ],
-  "Desserts": [
-    { name: "Classic Cheesecake", price: "₹200", img: "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Chocolate Lava Cake", price: "₹240", img: "https://images.pexels.com/photos/4109997/pexels-photo-4109997.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { name: "Tiramisu", price: "₹300", img: "https://images.pexels.com/photos/533325/pexels-photo-533325.jpeg?auto=compress&cs=tinysrgb&w=400" }
-  ]
-};
-
-function shuffle(arr) {
-  return arr.sort(() => Math.random() - 0.5);
-}
-
-function displayOrders(category) {
-  const list = document.getElementById("ordersList");
-  const title = document.getElementById("orderTitle");
-  title.textContent = category + " Orders";
-  list.innerHTML = "";
-
-  const shuffled = shuffle(menu[category]);
-  shuffled.forEach((item, index) => {
-    list.innerHTML += `
-      <div class="order-card">
-        <img src="${item.img}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/400x300?text=Food+Image'">
-        <div class="order-overlay">
-          <h3>${item.name}</h3>
-          <p>Order #${1000 + index} | Table ${Math.ceil(Math.random()*10)}</p>
-          <p class="price">${item.price}</p>
-        </div>
-      </div>
-    `;
-  });
-}
-
-displayOrders("Main Course");
-
-document.querySelectorAll(".category-nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    displayOrders(link.dataset.category);
-  });
-});
